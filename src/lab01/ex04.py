@@ -1,7 +1,9 @@
 m = int(input("Минуты: "))
-hours = m // 60
-minutes = m % 60
+days = m // 1440
+ost = m % 1440
+hours = ost // 60
+minutes = ost % 60
 if minutes < 10:
-    print(hours, ":0", minutes)
+    print(days, " д ", hours, ":0", minutes, sep="")
 else:
-    print(hours, ":", minutes,)
+    print(days, " д ", hours, ":", minutes, sep="")
