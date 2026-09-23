@@ -22,6 +22,15 @@
 
 Задание matrix:
 
+<img width="698" height="570" alt="Image" src="https://github.com/user-attachments/assets/b1e4a84c-2f9d-4b5d-859c-d8cb3e454988" />
+
+
+
+<img width="180" height="95" alt="Image" src="https://github.com/user-attachments/assets/ead82e92-ebbd-4879-bc1a-b0c571a1e549" />
+
+
+
+
 <img width="196" height="92" alt="Image" src="https://github.com/user-attachments/assets/417d99b5-4767-49eb-a071-7aaf35c2a91a" />
 
 
@@ -38,7 +47,22 @@
 
 
 
-
 Задание tuples:
+
+
+<img width="131" height="70" alt="Image" src="https://github.com/user-attachments/assets/06e77f5a-7364-49a2-bc8d-7a0298d4265b" />
+
+
+
+
+
+<img width="801" height="646" alt="Image" src="https://github.com/user-attachments/assets/9dcfa939-b6a7-459b-8988-97d8c83ac126" />
+
+
+
+
+
+<img width="897" height="397" alt="Image" src="https://github.com/user-attachments/assets/400e84b2-5cdc-4e8d-b58e-76bb129a17d1" />
+
 
 
