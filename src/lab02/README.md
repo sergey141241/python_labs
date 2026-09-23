@@ -2,55 +2,43 @@
 
 Задание arrays:
 
-<img width="508" height="180" alt="Image" src="https://github.com/user-attachments/assets/03c93b85-db0d-4114-9d5e-d11ba6d65092" />
+<img width="508" height="180" alt="Image" src="https://github.com/user-attachments/assets/2a0410a1-74fb-4c14-b9ed-192369c581d7" />
 
 
-<img width="89" height="48" alt="Image" src="https://github.com/user-attachments/assets/a7302741-7e80-4a07-879f-9c6931e2cc99" />
+<img width="89" height="48" alt="Image" src="https://github.com/user-attachments/assets/080c40ae-70c4-41ef-9f71-4dcd7c540617" />
 
 
-
-<img width="550" height="261" alt="Image" src="https://github.com/user-attachments/assets/6c5c4c87-f222-4041-954b-96e83da42c03" />
-
-
-<img width="110" height="47" alt="Image" src="https://github.com/user-attachments/assets/40e6250e-3ed5-4ff7-a99e-1c6cf03b6035" />
+<img width="550" height="261" alt="Image" src="https://github.com/user-attachments/assets/c49351d4-b9d8-40c9-8da7-73f7933353f3" />
 
 
-<img width="677" height="290" alt="Image" src="https://github.com/user-attachments/assets/b4e51991-4df6-4da7-85ff-388404e538c8" />
+<img width="110" height="47" alt="Image" src="https://github.com/user-attachments/assets/6a302b15-3e09-4643-9d9b-ef29ee9bed52" />
 
 
-<img width="159" height="30" alt="Image" src="https://github.com/user-attachments/assets/3d9a5304-ce5f-4403-ae37-634ae12cc182" />
+<img width="677" height="290" alt="Image" src="https://github.com/user-attachments/assets/89b3043b-873a-4915-8549-d88e52d0bdc8" />
+
+
+<img width="159" height="30" alt="Image" src="https://github.com/user-attachments/assets/0435d786-c4d7-4d6e-86ab-1d8667c041ff" />
 
 
 Задание matrix:
 
-<img width="159" height="30" alt="Image" src="https://github.com/user-attachments/assets/cf7df552-1a21-434a-ab4e-b53ed6839d6e" />
+<img width="196" height="92" alt="Image" src="https://github.com/user-attachments/assets/417d99b5-4767-49eb-a071-7aaf35c2a91a" />
 
 
-<img width="726" height="575" alt="Image" src="https://github.com/user-attachments/assets/f725734a-2b5e-4e6c-a549-d191f1b83a8f" />
+<img width="592" height="456" alt="Image" src="https://github.com/user-attachments/assets/c5a52b68-d49c-4904-b17e-fe0714153c00" />
+
+
+<img width="94" height="63" alt="Image" src="https://github.com/user-attachments/assets/92be3744-719c-482d-b9fe-8ef6fb5425eb" />
+
+
+<img width="573" height="551" alt="Image" src="https://github.com/user-attachments/assets/1f9db256-040c-40f5-98ef-28b79ed17ce0" />
 
 
 
-<img width="196" height="92" alt="Image" src="https://github.com/user-attachments/assets/f10c02d9-e700-4503-8c23-9eeb41096a0e" />
 
 
-<img width="592" height="456" alt="Image" src="https://github.com/user-attachments/assets/123c7224-698a-4d6b-bd13-49b7147e13c1" />
-
-
-
-<img width="94" height="63" alt="Image" src="https://github.com/user-attachments/assets/2161a935-8e81-45bc-9b25-8ba97d2ff45c" />
-
-
-<img width="573" height="551" alt="Image" src="https://github.com/user-attachments/assets/38decdc6-07f7-4edf-a42d-96c56be34371" />
 
 
 Задание tuples:
-
-<img width="131" height="70" alt="Image" src="https://github.com/user-attachments/assets/f5e02622-9913-467b-a329-d0dce99537dc" />
-
-
-<img width="801" height="646" alt="Image" src="https://github.com/user-attachments/assets/bbb255eb-2fe4-4253-b519-36a2f636841d" />
-
-
-<img width="897" height="397" alt="Image" src="https://github.com/user-attachments/assets/ed1c21c8-74c9-4278-835a-44ca27f63d56" />
 
 
