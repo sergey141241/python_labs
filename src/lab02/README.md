@@ -14,4 +14,9 @@ print(min_max([42]))                # (42, 42)
 ```
 
 
+<img width="129" height="52" alt="Image" src="https://github.com/user-attachments/assets/fe3acc9b-59a2-413c-b43d-ffa78ec46d3c" />
+
+
+если кол-во элементов = 0 то выдает ошибку, если нет то возвращается кортеж из наименьш и наибольш чисел.
+
 
