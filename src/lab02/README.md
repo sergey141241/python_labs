@@ -95,5 +95,71 @@ print(transpose([]))
 проверяем матрицу на прямоугольность (длина > 0, создаем переменную куда считаем длину 1 строки, идем дальше по строкам если длина не равно этой переменной то матрицы рванная). Считаем кол во строк и столбцов, идем по столбцам, делаем новую строку реза, идем по строкам , берем элеметы из i-строки и из j-строки таким образом переворачиваем матрицу.
 
 
+```python
+def row_sums(mat):
+    if len(mat) > 0:
+        first_len = len(mat[0])
+        for row in mat:
+            if len(row) != first_len:
+                raise ValueError("рваная матрица")
+    result = []
+    for row in mat:
+        s = 0
+        for x in row:
+            s = s + x
+        result.append(s)
+    return result
+
+
+print(row_sums([[1, 2, 3], [4, 5, 6]]))    # [6, 15]
+print(row_sums([[-1, 1], [10, -10]]))      # [0, 0]
+print(row_sums([[0, 0], [0, 0]]))          # [0, 0]
+```
+
+
+<img width="97" height="69" alt="Image" src="https://github.com/user-attachments/assets/dae13139-1c5b-4c28-a9a0-0bf27a60238b" />
+
+создаем список для сумм, перебираем строки,обнуляем накопитель перед каждой строкой (строго внутри внеш цикла), перебираем элементы текущей строки и добавляем элемент к сумме и добав сумму в рез
+
+
+```python
+ef col_sums(mat):
+    if len(mat) > 0:
+        first_len = len(mat[0])
+        for row in mat:
+            if len(row) != first_len:
+                raise ValueError("рваная матрица")
+    if len(mat) == 0:
+        return []
+    rows = len(mat)
+    cols = len(mat[0])
+    result = []
+    for j in range(cols):
+        s = 0
+        for i in range(rows):
+            s = s + mat[i][j]
+        result.append(s)
+    return result
+
+
+print(col_sums([[1, 2, 3], [4, 5, 6]]))    # [5, 7, 9]
+print(col_sums([[-1, 1], [10, -10]]))      # [9, -9]
+print(col_sums([[0, 0], [0, 0]]))          # [0, 0]
+```
+
+
+<img width="114" height="63" alt="Image" src="https://github.com/user-attachments/assets/c78db4b1-6152-42d2-8656-630950b820f8" />
+
+если длина 0 то [], считаем кол-во строк и столбцов, создаем список с суммами, идем по столбцам и обнуляем сумму для каждого нового столбца,идем по строкам и обновляем сумма взяв элемент из i-строки и j-столбца и добавляем сумму в результат.
+
+
+
+Задание tuples:
+
+
+
+
+
+
 
 
