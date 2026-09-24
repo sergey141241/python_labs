@@ -2,7 +2,6 @@ def format_record(rec):
     fio = rec[0]
     group = rec[1]
     gpa = rec[2]
-
     if type(fio) != str:
         raise TypeError("ФИО должно быть строкой")
     if type(group) != str:
@@ -16,9 +15,7 @@ def format_record(rec):
         raise ValueError("нужно хотя бы фамилия и имя")
     if group.strip() == "":
         raise ValueError("группа пустая")
-
     surname = parts[0].capitalize()
-
     initials = ""
     for i in range(1, len(parts)):
         letter = parts[i][0].upper()
