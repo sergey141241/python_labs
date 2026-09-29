@@ -7,8 +7,16 @@
 def min_max(nums):
     if len(nums) == 0:
         raise ValueError("пустой список")
-    return (min(nums), max(nums))
 
+    minimum = nums[0]
+    maximum = nums[0]
+
+    for x in nums:
+        if x < minimum:
+            minimum = x
+        if x > maximum:
+            maximum = x
+    return (minimum, maximum)
 print(min_max([3, -1, 5, 5, 0]))    # (-1, 5)
 print(min_max([42]))                # (42, 42)
 ```
@@ -17,20 +25,30 @@ print(min_max([42]))                # (42, 42)
 <img width="129" height="52" alt="Image" src="https://github.com/user-attachments/assets/fe3acc9b-59a2-413c-b43d-ffa78ec46d3c" />
 
 
-если кол-во элементов = 0 то выдает ошибку, если нет то возвращается кортеж из наименьш и наибольш чисел.
+если кол-во элементов = 0 то выдает ошибку, идем по всем элкментам и если нашли то обновляем мин макс. возвращается кортеж из наименьш и наибольш чисел.
 
 
 
 
 ```python
 def unique_sorted(nums):
-    result = []
+    unique = []
     for x in nums:
-        if x not in result:
-            result.append(x)
-    result.sort()
-    return result
+        found = False
+        for u in unique:
+            if u == x:
+                found = True
+        if found == False:
+            unique.append(x)
 
+    n = len(unique)
+    for i in range(n):
+        for j in range(n - 1):
+            if unique[j] > unique[j + 1]:
+                temp = unique[j]
+                unique[j] = unique[j + 1]
+                unique[j + 1] = temp
+    return unique
 print(unique_sorted([3, 1, 2, 1, 3])) # [1, 2, 3]
 print(unique_sorted([])) 
 ```
@@ -38,8 +56,7 @@ print(unique_sorted([]))
 
 <img width="107" height="62" alt="Image" src="https://github.com/user-attachments/assets/3a51768a-79e8-422b-b3cc-47184ad32b61" />
 
-создаем новый пустой список куда будем ложить неповтор и сортиров числа, идем по списку и проверяем если х нет еще в новом списке то добавляем его, потом соритруем и возвращаем результат.
-
+создаем новый пустой список куда будем ложить результат, берем каждое число из nums , флаг что число еще не нашли идем по ччислам и сравниваем добавили или нет, если да то поднимаем флаг. Если совпадений не было то добавляем х в результат. Запоминаем длину списка в n , идем for по всем числам и идем по всем парам соседей. Если левое больше правого то сохраняем число в temp, на место левого ставим правое и на месте правого ставим левое из temp и возвращаем
 
 
 ```python
@@ -158,34 +175,40 @@ print(col_sums([[0, 0], [0, 0]]))          # [0, 0]
 
 ```python
 def format_record(rec):
+    if type(rec) is not tuple:
+        raise TypeError("Запись должна быть кортежем")
+    if len(rec) != 3:
+        raise ValueError("В кортеже должно быть 3 элемента")
+
     fio = rec[0]
     group = rec[1]
     gpa = rec[2]
-    if type(fio) != str:
-        raise TypeError("ФИО должно быть строкой")
-    if type(group) != str:
-        raise TypeError("группа должна быть строкой")
-    if type(gpa) != float and type(gpa) != int:
-        raise TypeError("GPA должно быть числом")
 
-    parts = fio.split()
+    if type(fio) is not str:
+        raise TypeError("Имя должно быть строкой")
+    if type(group) is not str:
+        raise TypeError("Группа должна быть строкой")
+    if type(gpa) is not float and type(gpa) is not int:
+        raise TypeError("Оценка должна быть числом")
+    if gpa < 0.0 or gpa > 5.0:
+        raise ValueError("GPA должен быть от 0.0 до 5.0")
 
-    if len(parts) < 2:
-        raise ValueError("нужно хотя бы фамилия и имя")
-    if group.strip() == "":
-        raise ValueError("группа пустая")
-    surname = parts[0].capitalize()
-    initials = ""
-    for i in range(1, len(parts)):
-        letter = parts[i][0].upper()
-        initials = initials + letter + "."
+    words = fio.strip().split()
+    if len(words) != 2 and len(words) != 3:
+        raise ValueError("Введено не полное ФИО")
+    if len(group.strip()) == 0:
+        raise ValueError("Группа не может быть пустой")
 
-    group = group.strip()
+    fam = words[0].capitalize()
+    name_letter = words[1][0].upper()
 
-    gpa_str = "{:.2f}".format(gpa)
+    if len(words) == 3:
+        otch_letter = words[2][0].upper()
+        head = fam + " " + name_letter + "." + otch_letter + "."
+    else:
+        head = fam + " " + name_letter + "."
 
-    result = surname + " " + initials + ", гр. " + group + ", GPA " + gpa_str
-    return result
+    return head + ", гр. " + group + ", GPA " + "{:.2f}".format(gpa)
 print(format_record(("Иванов Иван Иванович", "BIVT-25", 4.6)))
 # Иванов И.И., гр. BIVT-25, GPA 4.60
 
@@ -203,8 +226,7 @@ print(format_record(("  сидорова  анна   сергеевна ", "ABB-
 <img width="339" height="89" alt="Image" src="https://github.com/user-attachments/assets/c37d2338-ddac-4f6b-ac24-6ac53c36fb9d" />
 
 
-распаковываем кортеж rec[0]... , проверяем что данные должны быть в нужном формате,сплит юзаем чтобы разбить и убрать ненужные пробелы в фамилии, если ее длина < 2 то ошибка если группа пустая то ошибка, делаем 1 букву фамилии заглавной остальные строчные. Создаем пустую строку для накопления , идем по всем словам кроме первого , берем первый символ и делаем его заглавным , приклеиваем букву и точку к уже накопленным инициалам. Strip убираем пробелы по краям (очищенная версия). gpa - превращаяем число в строку с 2 точками после запятой с помощью формат подставляем число в образец и собираем всю строчку.
-
+делаем проверки по тз, распаковывем кортежи , форматируем фамилию стрип убирает пробелы по краям, делаем заглавные буквы , форматируем окончат фамилию, возыращаем строку с форматом gpa 2 числа после
 
 
 
