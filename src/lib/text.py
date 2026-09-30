@@ -1,6 +1,5 @@
 import re
 
-
 def normalize(text, *, casefold=True, yo2e=True):
     result = text
     if casefold == True:
@@ -9,7 +8,6 @@ def normalize(text, *, casefold=True, yo2e=True):
         result = result.replace("ё", "е").replace("Ё", "Е")
     result = re.sub(r"\s+", " ", result)
     return result.strip()
-
 
 def tokenize(text):
     return re.findall(r"\w+(?:-\w+)*", text)
@@ -23,6 +21,7 @@ def count_freq(tokens):
         else:
             freq[word] = 1
     return freq
+
 
 
 def top_n(freq, n=5):

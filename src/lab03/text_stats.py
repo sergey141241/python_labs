@@ -16,20 +16,14 @@ def read_input():
     return data.decode("utf-8", errors="replace")
 
 
-def main():
-    text = read_input()
+text = read_input()
+text = normalize(text)
+tokens = tokenize(text)
+freq = count_freq(tokens)
+top = top_n(freq, 5)
 
-    text = normalize(text)
-    tokens = tokenize(text)
-    freq = count_freq(tokens)
-    top = top_n(freq, 5)
-
-    print("Всего слов: " + str(len(tokens)))
-    print("Уникальных слов: " + str(len(freq)))
-    print("Топ-5:")
-    for word, count in top:
-        print(word + ":" + str(count))
-
-
-if __name__ == "__main__":
-    main()
+print("Всего слов: " + str(len(tokens)))
+print("Уникальных слов: " + str(len(freq)))
+print("Топ-5:")
+for word, count in top:
+    print(word + ":" + str(count))
