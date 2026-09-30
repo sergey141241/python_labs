@@ -1,10 +1,23 @@
 import sys
-sys.path.append("src")
+import os
+
+sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from lib.text import normalize, tokenize, count_freq, top_n
 
+
+def read_input():
+    data = sys.stdin.buffer.read()
+    for enc in ("utf-8", "cp1251", "cp866"):
+        try:
+            return data.decode(enc)
+        except UnicodeDecodeError:
+            continue
+    return data.decode("utf-8", errors="replace")
+
+
 def main():
-    text = sys.stdin.read()
+    text = read_input()
 
     text = normalize(text)
     tokens = tokenize(text)
@@ -16,6 +29,7 @@ def main():
     print("Топ-5:")
     for word, count in top:
         print(word + ":" + str(count))
+
 
 if __name__ == "__main__":
     main()
