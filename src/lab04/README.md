@@ -81,7 +81,56 @@ python -c "from src.lab04.io_txt_csv import read_text; print(read_text('data/lab
 python -c "from src.lab04.io_txt_csv import write_csv; write_csv([('word','count'),('test',3)], 'data/lab04/check.csv')"
 ```
 
-<img width="289" height="142" alt="Image" src="https://github.com/user-attachments/assets/f59ae12f-9190-4391-bf85-1708f4797e53" />
-
 
 <img width="1209" height="111" alt="Image" src="https://github.com/user-attachments/assets/ce28aaaf-8f6d-484d-aa08-9ef57617f160" />
+
+<img width="289" height="142" alt="Image" src="https://github.com/user-attachments/assets/f59ae12f-9190-4391-bf85-1708f4797e53" />
+
+Первая комнада читает инит, вторая создает чек.цсв
+
+
+2.
+```python
+python -c "from src.lab04.io_txt_csv import read_text; print(repr(read_text('data/lab04/empty.txt')))"
+```
+
+<img width="1188" height="98" alt="Image" src="https://github.com/user-attachments/assets/3573129f-0117-4a98-b3c0-619a817d9e83" />
+
+
+Для пустоко файла возвращает пустую строку
+
+
+3.
+```python
+python -c "from src.lab04.io_txt_csv import write_csv; write_csv([], 'data/lab04/empty.csv')"
+dir data\lab04\empty.csv
+```
+
+<img width="243" height="149" alt="Image" src="https://github.com/user-attachments/assets/44e1ee5f-99fe-436e-9a20-15c2f17ec321" />
+
+
+создается файл с размером 0
+
+
+
+4.
+```python
+python -c "from src.lab04.io_txt_csv import write_csv; write_csv([], 'data/lab04/header_only.csv', header=('a','b'))"
+type data\lab04\header_only.csv
+```
+
+
+<img width="352" height="63" alt="Image" src="https://github.com/user-attachments/assets/78ce3ab3-dab3-491e-91d8-0a6c67f23f65" />
+
+пустой rows, выводит только a,b
+
+
+```python
+python -c "from src.lab04.io_txt_csv import write_csv; write_csv([(1,2),(3,)], 'data/lab04/bad.csv')"
+```
+
+
+<img width="942" height="165" alt="Image" src="https://github.com/user-attachments/assets/bece13af-7194-4d9c-87d3-d5ae19e049b1" />
+
+
+Разная длинна строк вызывает ошибку.
