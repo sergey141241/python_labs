@@ -79,6 +79,7 @@ def write_csv(rows: Iterable[Sequence],
 
 
 Мини тест:
+1.
 ```python
 python -c "from src.lab04.io_txt_csv import read_text; print(read_text('data/lab04/input.txt'))"
 python -c "from src.lab04.io_txt_csv import write_csv; write_csv([('word','count'),('test',3)], 'data/lab04/check.csv')"
