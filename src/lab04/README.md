@@ -127,6 +127,7 @@ type data\lab04\header_only.csv
 
 пустой rows, выводит только a,b
 
+5.
 
 ```python
 python -c "from src.lab04.io_txt_csv import write_csv; write_csv([(1,2),(3,)], 'data/lab04/bad.csv')"
