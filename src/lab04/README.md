@@ -15,7 +15,7 @@ def read_text(path: str | Path, encoding: str = "utf-8") -> str:
     Args:
         path: путь к файлу (строка или Path).
         encoding: кодировка, по умолчанию "utf-8".
-            Для другой кодировки укажите явно, например encoding="cp1251".
+            Для другой кодировки укажите например encoding="cp1251".
 
     Returns:
         Содержимое файла как строка.
@@ -74,6 +74,9 @@ def write_csv(rows: Iterable[Sequence],
         for r in data:
             w.writerow(r)
 ```
+
+импортируем нужные библиотеки, создаем функцию и возвращае (path превращает строку в обьект path, открываем файл читаем все содержимое закрывает и возвращает строку). Создаем родительские папки(parents = true - создать всю цепочку сверху вниз, exist_ok = true - не падать если уже есть). write_csv - задаем что то интегрируемое (последоватльность список кортежей иили списков). Превращаем rows в список , чтобы можно было пройти по нему несколько раз , если список не пустой задаем длину (сколько элементов в 1 строке столько и во всех). Идем по строкам , если длина строки не совпадает с эталоном выбрасываем ошибку через Ф строку. Проверяем есть ли заголовок и совпадает по длине с данными , если нет выбрасываем ошибку. Преобразуем путь в path , создаем родит папки если их нет. Открываем файл (w - режим запись, newline - не даем питону самому менять , добавлять переводы строк и пишем в ютф 8) with as f - файл автоматически закроется даже если там ошибка. Создаем обьект в цсв формате , если есть заголовок пишем его 1 строкой, далее проходим по строкам и пишем каждую.
+
 
 Мини тест:
 ```python
@@ -134,3 +137,76 @@ python -c "from src.lab04.io_txt_csv import write_csv; write_csv([(1,2),(3,)], '
 
 
 Разная длинна строк вызывает ошибку.
+
+
+Задание В:
+
+```python
+"""
+Считает частоты слов входного текста и сохраняет CSV-отчёт.
+...
+"""
+
+import sys
+import os
+import argparse
+
+sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
+
+from lib.text import normalize, tokenize, count_freq, top_n
+from lab04.io_txt_csv import read_text, write_csv
+
+
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+IN_DEFAULT = os.path.join(ROOT, "data", "lab04", "input.txt")
+OUT_DEFAULT = os.path.join(ROOT, "data", "lab04", "report.csv")
+
+
+def sort_rows(freq):
+    """Пары (слово, частота): сначала по частоте ↓, потом по слову ↑."""
+    result = list(freq.items())
+    result.sort(key=lambda pair: (-pair[1], pair[0]))
+    return result
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--in", dest="in_path", default=IN_DEFAULT)
+    ap.add_argument("--out", dest="out_path", default=OUT_DEFAULT)
+    ap.add_argument("--encoding", default="utf-8")
+    args = ap.parse_args()
+
+    source = read_text(args.in_path, encoding=args.encoding)
+
+    source = normalize(source)
+    words = tokenize(source)
+    freq = count_freq(words)
+    best = top_n(freq, 5)
+
+    rows = sort_rows(freq)
+    write_csv(rows, args.out_path, header=("word", "count"))
+
+    print("Всего слов: " + str(len(words)))
+    print("Уникальных слов: " + str(len(freq)))
+    print("Топ-5:")
+    for w, c in best:
+        print(w + ":" + str(c))
+
+
+if __name__ == "__main__":
+    main()
+```
+Импортируем бибилотеки, создаем путь к папке и импортируем функции из 3 лабы. Далее делаем абсолютный путь, чтобы не зависело от того откуда его запускают , также правильно склеиваем части пути. Создаем функцию для сортировки , freq_times -возвращает пары (ключ, значение) и превращаем в список для сортировки. Сортируем , создаем ключ -pair - сортировка по убыванию частоты, pair[0] - если частоты равны , то сортируем по алфавиту по возраст. Создаем парсер аргументов команд строки (парсер -который позволяет скрипту читать параметры, переданные через командную строку при запуске программы) ap - корткое имя что не писать parser. in = входной файл , dest - куда сохранится значение , default - значение по умолочанию. Развибраем аргументы при помощи ap.parse_args() . читаем содержимое файла как одну строку. используем функцию из io_txt_csv. Используем испортируемые ранее функции , превращаем словарь в отсортировачный список пар, пишем csv (он сам создаст родит папки и проверит длинны). Идем по списку бест распаковывем w-слово, с - частота 
+
+Тест:
+```python
+python src/lab04/text_report.py --in data/lab04/empty.txt --out data/lab04/report_empty.csv; Get-Content data/lab04/report_empty.csv
+```
+
+<img width="1155" height="165" alt="Image" src="https://github.com/user-attachments/assets/ede0302e-a734-441e-856d-dedea53021b1" />
+
+Пустой файл, в выводе только заголовок.
+
+
+
+
