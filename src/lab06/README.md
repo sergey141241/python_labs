@@ -124,27 +124,72 @@ if __name__ == "__main__":
 Импортируем argparse и функции конвертации из лаб5. Создаем парсер и 3 подкоманды: json2csv, csv2json, csv2xlsx. У каждой аргументы --in и --out, dest="input"/"output" - потому что in это ключевое слово в питоне и args.in написать нельзя. Смотрим какая подкоманда (args.cmd) и вызываем нужную функцию. Ошибки FileNotFoundError (нет файла) и ValueError (пустой/битый файл) ловим и выводим через parser.error. Если все ок печатаем что получилось.
 
 
-Тест:
+## Тест
+
+### cat
+
 ```
 python -m src.lab06.cli_text cat --input data/samples/people.csv -n
-python -m src.lab06.cli_text stats --input data/samples/people.txt --top 5
-python -m src.lab06.cli_convert json2csv --in data/samples/people.json --out data/out/people.csv
-python -m src.lab06.cli_convert csv2json --in data/samples/people.csv --out data/out/people.json
-python -m src.lab06.cli_convert csv2xlsx --in data/samples/people.csv --out data/out/people.xlsx
-python -m src.lab06.cli_text --help
-python -m src.lab06.cli_text stats --help
-python -m src.lab06.cli_convert --help
-python -m src.lab06.cli_text cat --input nope.txt
 ```
 
 <img src="../../images/lab06/img01.png">
 
-cat -n выводит строки с номерами, stats выводит кол-во слов, уникальных и топ-5.
+Выводит строки файла с номерами.
+
+### stats
+
+```
+python -m src.lab06.cli_text stats --input data/samples/people.txt --top 5
+```
 
 <img src="../../images/lab06/img02.png">
 
-Все 3 конвертации прошли без ошибок, файлы появились в data/out/.
+Выводит кол-во слов, уникальных и топ-5.
+
+### json2csv
+
+```
+python -m src.lab06.cli_convert json2csv --in data/samples/people.json --out data/out/people.csv
+```
 
 <img src="../../images/lab06/img03.png">
 
---help работает для каждой подкоманды, при отсутствии файла выводится понятная ошибка.
+### csv2json
+
+```
+python -m src.lab06.cli_convert csv2json --in data/samples/people.csv --out data/out/people.json
+```
+
+<img src="../../images/lab06/img04.png">
+
+### csv2xlsx
+
+```
+python -m src.lab06.cli_convert csv2xlsx --in data/samples/people.csv --out data/out/people.xlsx
+```
+
+<img src="../../images/lab06/img05.png">
+
+Все 3 конвертации прошли без ошибок, файлы появились в data/out/.
+
+### --help
+
+```
+python -m src.lab06.cli_text --help
+python -m src.lab06.cli_text stats --help
+python -m src.lab06.cli_convert --help
+```
+
+<img src="../../images/lab06/img06.png">
+
+<img src="../../images/lab06/img07.png">
+
+### Ошибка: нет файла
+
+```
+python -m src.lab06.cli_text cat --input nope.txt
+```
+
+<img src="../../images/lab06/img08.png">
+
+Выводится понятная ошибка, а не трейсбек.
