@@ -137,14 +137,14 @@ python -m src.lab06.cli_convert --help
 python -m src.lab06.cli_text cat --input nope.txt
 ```
 
-<img src="../../images/lab06/img01.png" alt="cat и stats">
+<img src="../../images/lab06/img01.png">
 
 cat -n выводит строки с номерами, stats выводит кол-во слов, уникальных и топ-5.
 
-<img src="../../images/lab06/img02.png" alt="конвертеры">
+<img src="../../images/lab06/img02.png">
 
 Все 3 конвертации прошли без ошибок, файлы появились в data/out/.
 
-<img src="../../images/lab06/img03.png" alt="help и ошибки">
+<img src="../../images/lab06/img03.png">
 
 --help работает для каждой подкоманды, при отсутствии файла выводится понятная ошибка.
