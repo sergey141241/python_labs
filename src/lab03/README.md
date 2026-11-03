@@ -94,6 +94,7 @@ def read_input():
     return data.decode("utf-8", errors="replace")
 
 
+text = read_input()
 text = normalize(text)
 tokens = tokenize(text)
 freq = count_freq(tokens)

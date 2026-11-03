@@ -1,0 +1,3 @@
+Alice живет в SPB. Bob живет в Moscow.
+Charlie живет в New York, и Alice любит New York.
+Bob любит Moscow, а Alice любит SPB.

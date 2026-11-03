@@ -1,4 +1,7 @@
-
+"""
+Считает частоты слов входного текста и сохраняет CSV-отчёт.
+...
+"""
 import sys
 import os
 import argparse
