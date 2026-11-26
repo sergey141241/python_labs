@@ -208,7 +208,7 @@ def students_from_json(path) -> list:
 
 
 def students_from_csv(path) -> list:
-    """★ Чтение записей из CSV (заголовок fio,birthdate,group,gpa). Политика та же - strict."""
+    """ Чтение записей из CSV (заголовок fio,birthdate,group,gpa). Политика та же - strict."""
     p = Path(path)
     if not p.exists():
         raise FileNotFoundError(f"Файл не найден: {path}")
